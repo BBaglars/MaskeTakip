@@ -1,4 +1,6 @@
-﻿
+﻿using Business.Abstract;
+using Business.Concrete;
+using Entities.Concrete;
 
 class Program
 {
@@ -39,6 +41,16 @@ class Program
             Console.WriteLine(ogrenciler[i]);
         }
 
+        Person person1 = new Person();
+        person1.FirstName = "Engin";
+        person1.LastNAme = "DEMİROĞ";
+        person1.DateOfBirthYear = 1985;
+        person1.NationalIdentitiy = 123;
+        
+        Person person2 = new Person();
+        person2.FirstName = "Berkay";
+        
+
         string[] sehirler1 = new[] {"Ankara", "İstanbul", "İzmir" };
         string[] sehirler2 = new[] {"Bursa", "Antalya", "Diyarbakır" };
         sehirler2 = sehirler1;
@@ -57,6 +69,9 @@ class Program
         {
             Console.WriteLine(sehir);
         }
+
+        PttManager pttManager = new PttManager(new PersonManager());
+        pttManager.GiveMAsk(person1);
 
         Console.ReadLine();
 
